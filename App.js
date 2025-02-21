@@ -6,9 +6,15 @@ import {useState} from 'react';
 function App() {
   let [pstatus,setpstatus]=useState(false);
   let [mstatus, setmstatus] = useState(false);
+  let [rstatus, setrstatus] = useState(false);
   // alert("HI")
   return (
     <div>
+      <button className='en' onClick={()=>setrstatus(true)}>Enquiry now</button>
+      <div onClick={()=>setrstatus(false)} className={`modal ${rstatus ? 'modalshow'  : ''}`}></div>
+      <div className={`modaldiv ${rstatus ? 'modaldivshow'  : ''}`}>
+        <h3>Enquiry now <span onClick={()=>setrstatus(false)}>&times;</span></h3>
+      </div>
       <button className='micon' onClick={()=>setmstatus(!mstatus)}>
           {mstatus ? 
           <span>&times;</span>
